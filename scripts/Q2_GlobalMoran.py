@@ -1,6 +1,6 @@
 """
-GEOG41160 Assignment 2, Question N: <question title>
-Team: <team number>
+GEOG41160 Assignment 2, Question 2: Global spatial autocorrelation 
+Team: team 3
 
 ANSWERS
 Write every paragraph, report, or interpretation the question asks for here,
