@@ -1,6 +1,6 @@
 """
 GEOG41160 Assignment 2, Question 3: Local clusters and hotspots
-Team: team 3
+Team: team 3- Elizabeth McCush and Kyra Hoffman
 
 ANSWERS
 Write every paragraph, report, or interpretation the question asks for here,
@@ -31,6 +31,11 @@ from pathlib import Path
 import numpy as np
 import geopandas as gpd
 import matplotlib.pyplot as plt
+
+from libpysal.weights import Queen
+from esda.moran import Moran_Local
+from esda.getisord import G_Local 
+from esda import fdr
 ## Add the libraries this question needs, for example:
 ## from libpysal.weights import Queen
 ## from esda.moran import Moran
