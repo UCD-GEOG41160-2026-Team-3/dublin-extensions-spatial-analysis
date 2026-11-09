@@ -3,10 +3,6 @@ GEOG41160 Assignment 2, Question 3: Local clusters and hotspots
 Team: team 3- Elizabeth McCush and Kyra Hoffman
 
 ANSWERS
-Write every paragraph, report, or interpretation the question asks for here,
-numbered to match the question's items. Quote the values this script prints,
-and update the answers whenever the code changes. For example, for
-Question 2:
 
 1. Local Moran's I (Lisa):
 Local Moran's I was calculated using Queen contiguity weights, 9,999 permutations and a fixed seed of 42. At p</= 0.05
