@@ -30,15 +30,15 @@ import numpy as np
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
+import libpysal
+import esda
+from scipy.stats import norm
 
 from libpysal.weights import Queen
 from esda.moran import Moran_Local
 from esda.getisord import G_Local 
 from esda import fdr
 from matplotlib.patches import Patch
-## Add the libraries this question needs, for example:
-## from libpysal.weights import Queen
-## from esda.moran import Moran
 
 
 #########################################
@@ -177,11 +177,6 @@ print(
 #########################################################################
 ##### 4. Computing Getis-Ord Gi* and Classifying Hotspots/Coldspots #####
 #########################################################################
-
-from scipy.stats import norm
-import libpysal
-import esda
-import numpy as np
 
 # In this step, we are defining the spatial weights as Queen contiguity weights but
 # not row standardized, and running the Getis-Ord Gi* analysis through esda.G_Local
