@@ -322,5 +322,4 @@ print("\nDensity map saved:", DENSITY_MAP)
 
 con.close()
 
-## Save outputs with the file names the brief asks for, for example:
-## fig.savefig(OUTPUTS / "LISA_TreeDensity_DublinED.png", dpi=200, bbox_inches="tight")
+
