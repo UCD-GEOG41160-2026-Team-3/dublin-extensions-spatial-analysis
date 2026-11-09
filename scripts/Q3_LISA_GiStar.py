@@ -15,25 +15,18 @@ EDs were significant. These consisted of 14 High-High, 28 Low-Low, 1 High-Low, a
 Applying the False Discovery Rate or FDR correction produces a significant threshold of 0.0093. After applying the correction, 30 EDs remained
 statistically significant, indicating that some of the original significant results were likely due to multiple testing(s).
 3. LISA Map
-The LISA cluster map shows the spatial distribution of significant local clusters and outliers in Dublin City. High-High clusters reprsent areas that have high
-extension densities that are surrounded by EDs with similar high values. Low-Low clusters represent areas with low extension densisties that are
+The LISA cluster map shows the spatial distribution of significant local clusters and outliers in Dublin City. High-High clusters represent areas that have high
+extension densities that are surrounded by EDs with similar high values. Low-Low clusters represent areas with low extension densities that are
 surrounded by low-value neighbors. Low-High and High-Low classifications identify local spatial outliers. The map was then saved by LISA_ExtensionDensity_DublinED.png
-4.
-5.
-6.
+4. The Gi* analysis classified 22 hotspots and 18 coldspots within the dataset. After the false discovery rate correction was applied to the 2-sided p-values,
+11 EDs remain significant.
+5. The Getis-Ord Gi* map displays the city of Dublin EDs by the z-score of the Gi* analysis. The EDs that remain significant after the FDR analysis are outlined, all
+of which are south of the Liffey. The color scheme shows hotspots as red and coldspots as blue.
+6. For the most part, the LISA classes and the Gi* classes do agree. All of the coldspot EDs fall in the Low-Low LISA class, showing that those divisions are not similar
+to their neighbors. Most of the hotspots fall under the High-High LISA class, showing that those divisions are similar to their neighbors. There were only a smaller number
+grouped in the other categories.
 
 """
-
-## HOW TO USE THIS TEMPLATE
-## Copy it once for each question into scripts/, and rename the copy:
-##   Q1_TreeDensity.py, Q2_GlobalMoran.py, Q3_LISA_GiStar.py,
-##   Q4_SpatialRegression.py
-## Keep one numbered section below for each item of the question, and delete
-## this block and any lines that do not apply.
-##
-## Run it from anywhere: the paths below are worked out from where this file
-## is, so the script runs from a fresh copy of the repository.
-
 
 from pathlib import Path
 
