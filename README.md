@@ -1,5 +1,5 @@
 # GEOG41160 Assignment 2 - Team 3
-Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie 
+Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie McCrush 
 
 ## Description
 This python workflow analyses where people in Dublin City extend their
@@ -15,7 +15,7 @@ What is Next: Discuss the workflow for each step, download the data packages, an
 ### Sprint 1 – Extension Density Analysis
 Date: 02/11/2026 
 
-Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie
+Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie McCrush 
 
 What Was Done:
 During Sprint 1, the team worked on Question 1, which involved analysing the density of planning applications for building extensions across Dublin City Electoral Divisions.
@@ -31,10 +31,10 @@ The Question 1 script, Q1_ExtensionDensity.py, was completed and tested.
 
 What Is Next:The next steps are to review the Question 1 script and outputs with the team, commit the completed work to GitHub and begin Question 2, which involves global spatial autocorrelation using extension density.
 
-### Sprint 1 - Global Spatial Autocorrelation 
+### Sprint 2 - Global Spatial Autocorrelation 
 Date: 06/11/2026
 
-Members: Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie
+Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie McCrush 
 
 What Was Done:
 During Sprint 2, the team worked on Question 2, which involved testing whether extension application density is spatially clustered across Dublin City EDs using Global Moran's I.
@@ -46,6 +46,6 @@ The completed work included:
 - Calculating Global Moran's I with 9,999 permutations and seed 42: raw density I = 0.328 (p = 0.0001) and log1p density I = 0.369 (p = 0.0001).
 - Interpreting the results: extension density is significantly clustered, and the conclusion does not change with the log transformation. 
 - Generating Histogram_ExtensionDensity_DublinED.png.
-The Question 2 script, Q2_GlobalMoran.py, was complted and tested.
+The Question 2 script, Q2_GlobalMoran.py, was completed and tested.
 
 What Is Next: Review the Question 2 script and outputs with the team, commit the completed work to GitHub and begin Question 3, which involves Local Moran's I (LISA) and Getis-Ord Gi* hot-spot analysis. 
