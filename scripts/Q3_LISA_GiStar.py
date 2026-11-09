@@ -8,11 +8,20 @@ numbered to match the question's items. Quote the values this script prints,
 and update the answers whenever the code changes. For example, for
 Question 2:
 
-1. Distribution: skewness of tree density is x.xx, so we used np.log1p because ...
-2. Weights: queen contiguity, because ...
-3. Moran's I: raw 0.xx (p = 0.xxx); log1p 0.xx (p = 0.xxx),
-   9,999 permutations, seed 42.
-4. Interpretation: ...
+1. Local Moran's I (Lisa):
+Local Moran's I was calculated using Queen contiguity weights, 9,999 permutations and a fixed seed of 42. At p</= 0.05
+EDs were significant. These consisted of 14 High-High, 28 Low-Low, 1 High-Low, and 5 Low-High EDs. 114 EDs were classified as Not significant.
+2.False Discovery Rate:
+Applying the False Discovery Rate or FDR correction produces a significant threshold of 0.0093. After applying the correction, 30 EDs remained
+statistically significant, indicating that some of the original significant results were likely due to multiple testing(s).
+3. LISA Map
+The LISA cluster map shows the spatial distribution of significant local clusters and outliers in Dublin City. High-High clusters reprsent areas that have high
+extension densities that are surrounded by EDs with similar high values. Low-Low clusters represent areas with low extension densisties that are
+surrounded by low-value neighbors. Low-High and High-Low classifications identify local spatial outliers. The map was then saved by LISA_ExtensionDensity_DublinED.png
+4.
+5.
+6.
+
 """
 
 ## HOW TO USE THIS TEMPLATE
