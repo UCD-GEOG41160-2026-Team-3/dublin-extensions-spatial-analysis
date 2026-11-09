@@ -8,11 +8,19 @@ numbered to match the question's items. Quote the values this script prints,
 and update the answers whenever the code changes. For example, for
 Question 2:
 
-1. Distribution: skewness of tree density is x.xx, so we used np.log1p because ...
-2. Weights: queen contiguity, because ...
-3. Moran's I: raw 0.xx (p = 0.xxx); log1p 0.xx (p = 0.xxx),
-   9,999 permutations, seed 42.
-4. Interpretation: ...
+1. Local Moran's I (Lisa):
+Local Moran's I was calculated using Queen contiguity weights, 9,999 permutations and a fixed seed of 42. At p</= 0.05
+EDs were significant. These consisted of 14 High-High, 28 Low-Low, 1 High-Low, and 5 Low-High EDs. 114 EDs were classified as Not significant.
+2.False Discovery Rate:
+Applying the False Discovery Rate or FDR correction produces a significant threshold of 0.0093. After applying the correction, 30 EDs remained 
+statistically significant, indicating that some of the original significant results were likely due to multiple testing(s).
+3. LISA Map
+The LISA cluster map shows the spatial distribution of significant local clusters and outliers in Dublin City. High-High clusters reprsent areas that have high
+extension densities that are surrounded by EDs with similar high values. Low-Low clusters represent areas with low extension densisties that are
+surrounded by low-value neighbors. Low-High and High-Low classifications identify local spatial outliers. The map was then saved by LISA_ExtensionDensity_DublinED.png
+4.
+5.
+6.
 """
 
 ## HOW TO USE THIS TEMPLATE
@@ -176,73 +184,5 @@ print(
     OUTPUTS / "LISA_ExtensionDensity_DublinED.png"
 )
 
-#########################################################################
-##### 4. Computing Getis-Ord Gi* and Classifying Hotspots/Coldspots #####
-#########################################################################
-
-from scipy.stats import norm
-import libpysal
-import esda
-import numpy as np
-
-# In this step, we are defining the spatial weights as Queen contiguity weights but
-# not row standardized, and running the Getis-Ord Gi* analysis through esda.G_Local
-
-w_bin = libpysal.weights.Queen.from_dataframe(eds, use_index=True)
-gi = G_Local(x, w_bin, transform="B", star=1.0, permutations=999,seed=42)
-
-# This step turns the results of the Gi* analysis into Z-scores and p-values,
-# as well as counting the hotspots and coldspots
-
-eds["gi_z"] = gi.Zs
-eds["gi_p"] = 2 * norm.sf(np.abs(gi.Zs))
-print("Hotspots:", (eds["gi_z"] > 1.96).sum(),
-      "| Coldspots:", (eds["gi_z"] < -1.96).sum())
-
-# This step applies the false discovery rate correction to two-sided p-values
-
-threshold = esda.fdr(eds["gi_p"].values, 0.05)
-print(eds.loc[eds["gi_p"] <= threshold, ["ED_ENGLISH", "gi_z"]])
-
-#############################################
-##### 5. Mapping Hotspots and Coldspots #####
-#############################################
-
-# This step maps the hotspots and coldspots with a diverging color scheme
-
-lim = np.abs(eds["gi_z"]).max()
-fig, ax = plt.subplots(figsize=(7, 6))
-eds.plot(column="gi_z", 
-         cmap="RdBu_r", 
-         vmin=-lim, 
-         vmax=lim, 
-         legend=True, 
-         edgecolor="grey", 
-         linewidth=0.3, 
-         ax=ax, 
-         legend_kwds={"label": "Gi* Z-score", "shrink": 0.6})
-eds[eds["gi_p"] <= threshold].boundary.plot(ax=ax, color="black", linewidth=2)
-ax.set_title("Getis-Ord Gi* Z-scores (outlined: significant after FDR)")
-ax.set_axis_off()
-plt.savefig(OUTPUTS / "GiStar_ExtensionDensity_DublinED.png", dpi=300, bbox_inches="tight")
-plt.show()
-
-print(
-    "\nMap saved:",
-    OUTPUTS / "GiStar_ExtensionDensity_DublinED.png")
-
-######################################
-##### 6. Comparing Gi* with LISA #####
-######################################
-
-# This step defines the hotspots and coldspots based on
-# Z-score and compares the Gi* classes to the LISA classes
-
-eds["gi_class"] = np.where(
-    eds["gi_z"] > 1.96, "Hotspot",
-    np.where(eds["gi_z"] < -1.96, "Coldspot", "Not significant")
-)
-print(eds["gi_class"].value_counts())
-
-print(pd.crosstab(eds["LISA_Class"], eds["gi_class"]))
-
+## Save outputs with the file names the brief asks for, for example:
+## fig.savefig(OUTPUTS / "LISA_TreeDensity_DublinED.png", dpi=200, bbox_inches="tight")
