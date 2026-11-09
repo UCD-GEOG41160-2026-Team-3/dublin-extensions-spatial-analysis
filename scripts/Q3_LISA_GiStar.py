@@ -188,21 +188,21 @@ import numpy as np
 # In this step, we are defining the spatial weights as Queen contiguity weights but
 # not row standardized, and running the Getis-Ord Gi* analysis through esda.G_Local
 
-w_bin = libpysal.weights.Queen.from_dataframe(df, use_index=True)
+w_bin = libpysal.weights.Queen.from_dataframe(eds, use_index=True)
 gi = G_Local(x, w_bin, transform="B", star=1.0, permutations=999,seed=42)
 
 # This step turns the results of the Gi* analysis into Z-scores and p-values,
 # as well as counting the hotspots and coldspots
 
-df["gi_z"] = gi.Zs
-df["gi_p"] = 2 * norm.sf(np.abs(gi.Zs))
-print("Hotspots:", (df["gi_z"] > 1.96).sum(),
-      "| Coldspots:", (df["gi_z"] < -1.96).sum())
+eds["gi_z"] = gi.Zs
+eds["gi_p"] = 2 * norm.sf(np.abs(gi.Zs))
+print("Hotspots:", (eds["gi_z"] > 1.96).sum(),
+      "| Coldspots:", (eds["gi_z"] < -1.96).sum())
 
 # This step applies the false discovery rate correction to two-sided p-values
 
-threshold = esda.fdr(df["gi_p"].values, 0.05)
-print(df.loc[df["gi_p"] <= threshold, ["ED_ENGLISH", "gi_z"]])
+threshold = esda.fdr(eds["gi_p"].values, 0.05)
+print(eds.loc[eds["gi_p"] <= threshold, ["ED_ENGLISH", "gi_z"]])
 
 #############################################
 ##### 5. Mapping Hotspots and Coldspots #####
@@ -210,15 +210,26 @@ print(df.loc[df["gi_p"] <= threshold, ["ED_ENGLISH", "gi_z"]])
 
 # This step maps the hotspots and coldspots with a diverging color scheme
 
-lim = np.abs(df["gi_z"]).max()
+lim = np.abs(eds["gi_z"]).max()
 fig, ax = plt.subplots(figsize=(7, 6))
-df.plot(column="gi_z", cmap="RdBu_r", vmin=-lim, vmax=lim, legend=True,
-        edgecolor="grey", linewidth=0.3, ax=ax, legend_kwds={"label": "Gi* Z-score", "shrink": 0.6})
-df[df["gi_p"] <= theshold].boundary.plot(ax=ax, color="black", linewidth=2)
+eds.plot(column="gi_z", 
+         cmap="RdBu_r", 
+         vmin=-lim, 
+         vmax=lim, 
+         legend=True, 
+         edgecolor="grey", 
+         linewidth=0.3, 
+         ax=ax, 
+         legend_kwds={"label": "Gi* Z-score", "shrink": 0.6})
+eds[eds["gi_p"] <= threshold].boundary.plot(ax=ax, color="black", linewidth=2)
 ax.set_title("Getis-Ord Gi* Z-scores (outlined: significant after FDR)")
 ax.set_axis_off()
 plt.savefig(OUTPUTS / "GiStar_ExtensionDensity_DublinED.png", dpi=300, bbox_inches="tight")
 plt.show()
+
+print(
+    "\nMap saved:",
+    OUTPUTS / "GiStar_ExtensionDensity_DublinED.png")
 
 ######################################
 ##### 6. Comparing Gi* with LISA #####
@@ -227,11 +238,11 @@ plt.show()
 # This step defines the hotspots and coldspots based on
 # Z-score and compares the Gi* classes to the LISA classes
 
-df["gi_class"] = np.where(
-    df["gi_z"] > 1.96, "Hotspot",
-    np.where(df["gi_z"] < -1.96, "Coldspot", "Not significant")
+eds["gi_class"] = np.where(
+    eds["gi_z"] > 1.96, "Hotspot",
+    np.where(eds["gi_z"] < -1.96, "Coldspot", "Not significant")
 )
-print(df["gi_class"].value_counts())
+print(eds["gi_class"].value_counts())
 
-print(pd.crosstab(df["lisa_class"], df["gi_class"]))
+print(pd.crosstab(eds["LISA_Class"], eds["gi_class"]))
 
