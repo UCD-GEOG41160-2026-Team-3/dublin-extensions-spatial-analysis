@@ -227,3 +227,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore generated outputs
+/outputs/*
+!/outputs/.gitkeep
