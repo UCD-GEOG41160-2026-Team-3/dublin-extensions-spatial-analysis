@@ -1,5 +1,5 @@
 # GEOG41160 Assignment 2 - Team 3
-Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie McCrush 
+Kyra Hoffman, Shakthi Anand, Cara Wilson, Elizabeth McCrush 
 
 ## Description
 This python workflow analyses where people in Dublin City extend their
@@ -9,13 +9,13 @@ performing global spatial autocorrelation, and analyzing local clusters and hot-
 ### Sprint 0 - Setup
 Date: 28/10/2026
 Members: All present
-What Was Done: We all read the brief to gain a better understanding of the task. Our github organization "UCD-GEOG41160-2026-Team-3" was created along with our repository "dublin-extensions-spatial-analysis". All members were added as owners. We worked to get everyone to clone the repo onto their local computer. Permissions affected Lizzie cloning the repo so we still need to fix that issue. Kyra, Shakthi, and Cara were able to make commits. We have also chosen our roles. Lizzie has fixed the cloning issue and is now in on VS code.
+What Was Done: We all read the brief to gain a better understanding of the task. Our github organization "UCD-GEOG41160-2026-Team-3" was created along with our repository "dublin-extensions-spatial-analysis". All members were added as owners. We worked to get everyone to clone the repo onto their local computer. Permissions affected Elizabeth cloning the repo so we still need to fix that issue. Kyra, Shakthi, and Cara were able to make commits. We have also chosen our roles. Elizabeth has fixed the cloning issue and is now in on VS code.
 What is Next: Discuss the workflow for each step, download the data packages, and begin writing scripts.
 
 ### Sprint 1 – Extension Density Analysis
 Date: 02/11/2026 
 
-Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie McCrush 
+Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Elizabeth McCrush 
 
 What Was Done:
 During Sprint 1, the team worked on Question 1, which involved analysing the density of planning applications for building extensions across Dublin City Electoral Divisions.
@@ -34,7 +34,7 @@ What Is Next:The next steps are to review the Question 1 script and outputs with
 ### Sprint 2 - Global Spatial Autocorrelation 
 Date: 06/11/2026
 
-Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Lizzie McCrush 
+Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Elizabeth McCrush 
 
 What Was Done:
 During Sprint 2, the team worked on Question 2, which involved testing whether extension application density is spatially clustered across Dublin City EDs using Global Moran's I.
@@ -49,3 +49,16 @@ The completed work included:
 The Question 2 script, Q2_GlobalMoran.py, was completed and tested.
 
 What Is Next: Review the Question 2 script and outputs with the team, commit the completed work to GitHub and begin Question 3, which involves Local Moran's I (LISA) and Getis-Ord Gi* hot-spot analysis. 
+
+### Spring 3 - Local Clusters & Hotspots
+Date: 09/11/2026 Code Run & Readme Update 11/11/2026
+
+Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, & Elizabeth McCush
+
+What Was Done:
+Sprint 3 involved using Local Moran's or LISA to classify the Eds as High-High, Low-High, Low-Low, High-Low, and not significant, applying a false discovery rate, mapping the LISA classes as a png, ____
+
+Completed Work:
+- Local Moran's 1 calculated using 9,999 permutations and seed 42: High-High=14, Low-Low= 28, High-Low= 1, Low-High=5. Then 114 Eds were classified as not significant.
+- False discovery rate produced a threshold of 0.0093. This made 30 Eds not significant.
+- LISA Map was created showing the spatial distribution of the clusters
