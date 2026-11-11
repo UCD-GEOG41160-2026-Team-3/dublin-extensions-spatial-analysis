@@ -11,7 +11,13 @@ Date: 28/10/2026
 
 Members: All present
 
-What Was Done: We all read the brief to gain a better understanding of the task. Our github organization "UCD-GEOG41160-2026-Team-3" was created along with our repository "dublin-extensions-spatial-analysis". All members were added as owners. We worked to get everyone to clone the repo onto their local computer. Permissions affected Elizabeth cloning the repo so we still need to fix that issue. Kyra, Shakthi, and Cara were able to make commits. We have also chosen our roles. Elizabeth has fixed the cloning issue and is now in on VS code.
+What Was Done: Set-up for our Assignment 2, including all organizing our goals and schedule sprints.
+
+Completed Work: 
+- We all read the brief to gain a better understanding of the task.
+- Our github organization "UCD-GEOG41160-2026-Team-3" was created along with our repository "dublin-extensions-spatial-analysis". All members were added as owners.
+- We worked to get everyone to clone the repo onto their local computer. Permissions affected Elizabeth cloning the repo so we still need to fix that issue. Kyra, Shakthi, and Cara were able to make commits. We have also chosen our roles. Elizabeth has fixed the cloning issue and is now in on VS code.
+- Scheduled future sprint meetings.
 
 What is Next: Discuss the workflow for each step, download the data packages, and begin writing scripts.
 
