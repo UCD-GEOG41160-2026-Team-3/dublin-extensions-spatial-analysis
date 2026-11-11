@@ -1,10 +1,42 @@
 # GEOG41160 Assignment 2 - Team 3
-Kyra Hoffman, Shakthi Anand, Cara Wilson, Elizabeth McCrush 
+Kyra Hoffman, Shakthi Anand, Cara Wilson, & Elizabeth McCush 
 
 ## Description
 This python workflow analyses where people in Dublin City extend their
 buildings based on the density of planning applications for extensions by Electoral Division (ED),
 performing global spatial autocorrelation, and analyzing local clusters and hot-spots.
+
+## Folders
+- `data/` – the input data (not uploaded to GitHub; download it from the sources below)
+  - `data/planning/planning_applications_national.gpkg`
+  - `data/boundaries/eds_national.gpkg`
+- `scripts/` – the Python scripts, one per question
+- `outputs/` – the database, GeoPackage, maps and figures the scripts create
+
+## CRS
+All analysis uses Irish Transverse Mercator (EPSG:2157), which is in metres and
+suitable for calculating areas in Ireland. The planning applications are
+supplied in Web Mercator (EPSG:3857) and are reprojected to EPSG:2157 in
+Question 1.
+
+## Order to run the scripts
+1. `scripts/Q1_ExtensionDensity.py` – creates `outputs/DublinED_ExtensionDensity.gpkg`
+2. `scripts/Q2_GlobalMoran.py`
+3. `scripts/Q3_LISA_GiStar.py`
+
+Questions 2 and 3 both start from Question 1's output, so Question 1 must be run first.
+
+## Data sources and licences
+- **Planning applications:** Department of Housing, Local Government and
+  Heritage, Planning Application Points (data.gov.ie), licensed under CC BY 4.0.
+  https://data-housinggovie.opendata.arcgis.com/datasets/housinggovie::planning-application-points
+  Downloaded on: 28/10/2026
+- **Electoral Divisions:** Tailte Éireann, CSO Electoral Divisions – National
+  Statistical Boundaries – 2022 – Ungeneralised (data.gov.ie), licensed under
+  CC BY 4.0.
+  https://data-osi.opendata.arcgis.com/datasets/osi::cso-electoral-divisions-national-statistical-boundaries-2022-ungeneralised
+
+## Sprint log
 
 ### Sprint 0 - Setup
 Date: 28/10/2026
@@ -24,7 +56,7 @@ What is Next: Discuss the workflow for each step, download the data packages, an
 ### Sprint 1 – Extension Density Analysis
 Date: 02/11/2026 
 
-Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Elizabeth McCrush 
+Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, & Elizabeth McCush 
 
 What Was Done:
 During Sprint 1, the team worked on Question 1, which involved analysing the density of planning applications for building extensions across Dublin City Electoral Divisions.
@@ -43,7 +75,7 @@ What Is Next:The next steps are to review the Question 1 script and outputs with
 ### Sprint 2 - Global Spatial Autocorrelation 
 Date: 06/11/2026
 
-Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, Elizabeth McCrush 
+Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, & Elizabeth McCush 
 
 What Was Done:
 During Sprint 2, the team worked on Question 2, which involved testing whether extension application density is spatially clustered across Dublin City EDs using Global Moran's I.
@@ -60,16 +92,16 @@ The Question 2 script, Q2_GlobalMoran.py, was completed and tested.
 What Is Next: Review the Question 2 script and outputs with the team, commit the completed work to GitHub and begin Question 3, which involves Local Moran's I (LISA) and Getis-Ord Gi* hot-spot analysis. 
 
 ### Sprint 3 - Local Clusters & Hotspots
-Date: 09/11/2026 Code Run & Readme Update 11/11/2026
+Date: 09/11/2026 Code Run & README Update 11/11/2026
 
 Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, & Elizabeth McCush
 
 What Was Done:
-Sprint 3 involved using Local Moran's or LISA to classify the Eds as High-High, Low-High, Low-Low, High-Low, and not significant, applying a false discovery rate, mapping the LISA classes as a png, classifying hotspots/coldspots with Getis-Ord Gi*, and comparing to LISA analysis results.
+Sprint 3 involved using Local Moran's (LISA) to classify the EDs as High-High, Low-High, Low-Low, High-Low, and not significant, applying a false discovery rate, mapping the LISA classes as a png, classifying hotspots/coldspots with Getis-Ord Gi*, and comparing to LISA analysis results.
 
 Completed Work:
-- Local Moran's 1 calculated using 9,999 permutations and seed 42: High-High=14, Low-Low= 28, High-Low= 1, Low-High=5. Then 114 Eds were classified as not significant.
-- False discovery rate produced a threshold of 0.0093. This made 30 Eds not significant.
+- Local Moran's I calculated using 9,999 permutations and seed 42: High-High=14, Low-Low= 28, High-Low= 1, Low-High=5. Then 114 EDs were classified as not significant.
+- False discovery rate produced a threshold of 0.0093. This made 30 EDs not significant.
 - LISA Map was created showing the spatial distribution of the clusters.
 - Using Getis-Ord Gi* analysis, calculated z-scores and p-values, classified into statistically significant hotspots and coldspots.
 - Mapped analysis results with a diverging color scheme with significant results highlighted.
@@ -88,7 +120,7 @@ Sprint 4 involved reviewing and finalizing all scripts, figures, and text respon
 Completed Work:
 - Reviewed Q1, Q2, Q3 scripts and figures.
 - Reviewed all text responses.
-- Updated and edited README file
-- Wrote individual responses
-- Created .txt. and .zip files for submission
-- Submitted all group work to Brightspace
+- Updated and edited README file.
+- Wrote individual reflections. 
+- Created .txt and .zip files for submission.
+- Submitted all group work to Brightspace.
