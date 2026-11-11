@@ -8,8 +8,11 @@ performing global spatial autocorrelation, and analyzing local clusters and hot-
 
 ### Sprint 0 - Setup
 Date: 28/10/2026
+
 Members: All present
+
 What Was Done: We all read the brief to gain a better understanding of the task. Our github organization "UCD-GEOG41160-2026-Team-3" was created along with our repository "dublin-extensions-spatial-analysis". All members were added as owners. We worked to get everyone to clone the repo onto their local computer. Permissions affected Elizabeth cloning the repo so we still need to fix that issue. Kyra, Shakthi, and Cara were able to make commits. We have also chosen our roles. Elizabeth has fixed the cloning issue and is now in on VS code.
+
 What is Next: Discuss the workflow for each step, download the data packages, and begin writing scripts.
 
 ### Sprint 1 – Extension Density Analysis
@@ -50,15 +53,36 @@ The Question 2 script, Q2_GlobalMoran.py, was completed and tested.
 
 What Is Next: Review the Question 2 script and outputs with the team, commit the completed work to GitHub and begin Question 3, which involves Local Moran's I (LISA) and Getis-Ord Gi* hot-spot analysis. 
 
-### Spring 3 - Local Clusters & Hotspots
+### Sprint 3 - Local Clusters & Hotspots
 Date: 09/11/2026 Code Run & Readme Update 11/11/2026
 
 Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, & Elizabeth McCush
 
 What Was Done:
-Sprint 3 involved using Local Moran's or LISA to classify the Eds as High-High, Low-High, Low-Low, High-Low, and not significant, applying a false discovery rate, mapping the LISA classes as a png, ____
+Sprint 3 involved using Local Moran's or LISA to classify the Eds as High-High, Low-High, Low-Low, High-Low, and not significant, applying a false discovery rate, mapping the LISA classes as a png, classifying hotspots/coldspots with Getis-Ord Gi*, and comparing to LISA analysis results.
 
 Completed Work:
 - Local Moran's 1 calculated using 9,999 permutations and seed 42: High-High=14, Low-Low= 28, High-Low= 1, Low-High=5. Then 114 Eds were classified as not significant.
 - False discovery rate produced a threshold of 0.0093. This made 30 Eds not significant.
-- LISA Map was created showing the spatial distribution of the clusters
+- LISA Map was created showing the spatial distribution of the clusters.
+- Using Getis-Ord Gi* analysis, calculated z-scores and p-values, classified into statistically significant hotspots and coldspots.
+- Mapped analysis results with a diverging color scheme with significant results highlighted.
+- Compared Gi* results with LISA results.
+
+What is Next: Reviewing the Question 3 script and outputs with the team and commit the completed work to GitHub. We will also finalize all scripts and figures, write our individual reflections and submit our materials to Brightspace.
+
+### Sprint 4 - Final Review and Submission
+Date: 11/11/2026
+
+Members: Kyra Hoffman, Shakthi Anand, Cara Wilson, & Elizabeth McCush
+
+What was Done:
+Sprint 4 involved reviewing and finalizing all scripts, figures, and text responses to the assignment brief questions and submitting required material to Brightspace.
+
+Completed Work:
+- Reviewed Q1, Q2, Q3 scripts and figures.
+- Reviewed all text responses.
+- Updated and edited README file
+- Wrote individual responses
+- Created .txt. and .zip files for submission
+- Submitted all group work to Brightspace
